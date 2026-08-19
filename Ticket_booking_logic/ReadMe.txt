@@ -23,3 +23,13 @@ LLD:
         :TrainNo
         :Arrival time
         :Departure time
+        :Available seats (List<boolean> seats)
+2. Service
+    i. Booking
+        :login User (User user)
+        :signup
+        :fetch booking
+        :cancel booking
+    ii. Train
+        :book ticket (String a, String b)
+        :available seats

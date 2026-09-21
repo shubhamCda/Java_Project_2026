@@ -3,9 +3,13 @@
   <component name="MaterialThemeProjectNewConfig">
     <option name="metadata">
       <MTProjectMetadataState>
+<<<<<<< HEAD
         <option name="migrated" value="true" />
         <option name="pristineConfig" value="false" />
         <option name="userId" value="-3cbc9ec9:1997be89f6a:-7ffe" />
+=======
+        <option name="userId" value="-59fcd5e8:1a05e102323:-7feb" />
+>>>>>>> 8112105 (Add simple REST endpoint with GET and POST operations)
       </MTProjectMetadataState>
     </option>
   </component>

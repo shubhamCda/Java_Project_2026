@@ -23,8 +23,8 @@ public class UserController {
 
 
     @GetMapping("/api/user/{id}")
-    public User getUser(@PathVariable Long id){
-        return userService.fetchUser(id);
+    public ResponseEntity<User> getUser(@PathVariable Long id){
+        return new ResponseEntity<>(userService.fetchUser(id), HttpStatus.OK);
     }
 
     @PostMapping("/api/users")

@@ -28,8 +28,8 @@ public class UserController {
     }
 
     @PostMapping("/api/users")
-    public String  createUsers(@RequestBody User user){
+    public ResponseEntity<String>  createUsers(@RequestBody User user){
         userService.addUser(user);
-        return "User added";
+        return new ResponseEntity<>("User created",HttpStatus.CREATED);
     }
 }

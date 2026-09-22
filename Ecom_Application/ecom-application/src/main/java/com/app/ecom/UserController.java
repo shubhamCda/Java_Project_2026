@@ -24,7 +24,11 @@ public class UserController {
 
     @GetMapping("/api/user/{id}")
     public ResponseEntity<User> getUser(@PathVariable Long id){
-        return new ResponseEntity<>(userService.fetchUser(id), HttpStatus.OK);
+        User user = userService.fetchUser(id);
+        if (user == null)
+            return ResponseEntity.notFound().build();
+
+        return new ResponseEntity<>(user, HttpStatus.OK);
     }
 
     @PostMapping("/api/users")

@@ -20,4 +20,12 @@ public class UserService {
         return userList;
     }
 
+    public User fetchUser(Long id) {
+        for (User user: userList){
+            if(user.getId() == id){
+                return user;
+            }
+        }
+        return null;
+    }
 }

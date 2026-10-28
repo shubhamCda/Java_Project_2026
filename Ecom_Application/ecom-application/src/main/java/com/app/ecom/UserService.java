@@ -32,4 +32,16 @@ public class UserService {
                 .filter(user -> user.getId() == id)
                 .findFirst();
     }
+
+    public boolean updateUser(Long id, User updatedUser){
+        return userList.stream()
+                .filter(user -> user.getId() == id)
+                .findFirst()
+                .map(existingUser ->{
+                    existingUser.setFirstName(updatedUser.getFirstName());
+                    existingUser.setLastName((updatedUser.getLastName()));
+                    return true;
+                })
+                .orElse(false);
+    }
 }

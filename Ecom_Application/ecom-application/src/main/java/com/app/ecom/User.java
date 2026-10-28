@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 //@AllArgsConstructor
-//@Entity(name = "user_table")
+//@Entity(name = "user_table") //name it in database as user_table
 @Entity
 public class User {
 

@@ -8,8 +8,14 @@ import java.util.Optional;
 
 @Service
 public class UserService {
+
+    private final UserRepository userRepository;
     private List<User> userList = new ArrayList<>();
     private Long nextId = 1L;
+
+    public UserService(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
 
     public List<User> fetchAllUsers(){
         return userList;

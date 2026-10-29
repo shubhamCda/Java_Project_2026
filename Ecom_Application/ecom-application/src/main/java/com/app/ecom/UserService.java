@@ -19,14 +19,22 @@ public class UserService {
 //        this.userRepository = userRepository;
 //    } //RequiredArgsConstructor will replace this
 
+//    public List<User> fetchAllUsers(){
+//        return userList;
+//    }
     public List<User> fetchAllUsers(){
-        return userList;
+        return userRepository.findAll(); //using JPA repository
     }
 
-    public List<User> addUser(User user){
-        user.setId(nextId++);
-        userList.add(user);
-        return userList;
+//    public List<User> addUser(User user){
+//        user.setId(nextId++);
+//        userList.add(user);
+//        return userList;
+//    }
+    public void addUser(User user){
+//        user.setId(nextId++);
+        userRepository.save(user); //using JPA
+
     }
 
     public Optional<User> fetchUser(Long id) {
@@ -36,18 +44,28 @@ public class UserService {
 //            }
 //        }
 //        return null;
-        return userList.stream()
-                .filter(user -> user.getId() == id)
-                .findFirst();
+//        return userList.stream()
+//                .filter(user -> user.getId() == id)
+//                .findFirst();
+        return userRepository.findById(id); //using JPA
     }
 
     public boolean updateUser(Long id, User updatedUser){
-        return userList.stream()
-                .filter(user -> user.getId() == id)
-                .findFirst()
+//        return userList.stream()
+//                .filter(user -> user.getId() == id)
+//                .findFirst()
+//                .map(existingUser ->{
+//                    existingUser.setFirstName(updatedUser.getFirstName());
+//                    existingUser.setLastName((updatedUser.getLastName()));
+//                    return true;
+//                })
+//                .orElse(false);
+
+        return userRepository.findById(id)
                 .map(existingUser ->{
                     existingUser.setFirstName(updatedUser.getFirstName());
                     existingUser.setLastName((updatedUser.getLastName()));
+                    userRepository.save(existingUser);
                     return true;
                 })
                 .orElse(false);

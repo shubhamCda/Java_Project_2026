@@ -51,7 +51,7 @@ public class UserService {
 
         return userRepository.findById(id)
                 .map(this::mapToUserResponse);
-        
+
 //        for (User user: userList){
 //            if(user.getId() == id){
 //                return user;

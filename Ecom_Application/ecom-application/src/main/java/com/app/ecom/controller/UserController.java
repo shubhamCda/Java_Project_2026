@@ -30,15 +30,17 @@ public class UserController {
 //    @GetMapping("/api/users/{id}")
     @GetMapping("/{id}")
     public ResponseEntity<UserResponse> getUser(@PathVariable Long id){
+
+        return userService.fetchUser(id)
+                .map(ResponseEntity::ok)
+                .orElseGet(() -> ResponseEntity.notFound().build());
+//
 //        User user = userService.fetchUser(id);
 //        if (user == null)
 //            return ResponseEntity.notFound    ().build();
 //
 //        return new ResponseEntity<>(user, HttpStatus.OK);
 
-        return userService.fetchUser(id)
-                .map(ResponseEntity::ok)
-                .orElseGet(() -> ResponseEntity.notFound().build());
     }
 
 //    @PostMapping("/api/users")

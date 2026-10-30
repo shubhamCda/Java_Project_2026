@@ -13,7 +13,7 @@ public class UserService {
 
     private final UserRepository userRepository;
     private List<User> userList = new ArrayList<>();
-    private Long nextId = 1L;
+//    private Long nextId = 1L;
 
 //    public UserService(UserRepository userRepository) {
 //        this.userRepository = userRepository;

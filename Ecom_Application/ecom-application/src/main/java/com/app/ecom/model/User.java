@@ -1,9 +1,6 @@
 package com.app.ecom.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -22,6 +19,11 @@ public class User {
     private String email;
     private String phone;
     private UserRole role = UserRole.CUSTOMER;
+
+    @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name = "address_id", referencedColumnName = "id")
+    private Address address;
+
 
     //default constructor is needed to create instances of entity class during the retrieval of data from the database w/o this JPA won't able to create or instantiate any instances
 //    public User() {

@@ -20,6 +20,9 @@ public class User {
     private long id;
     private String firstName;
     private String lastName;
+    private String email;
+    private String phone;
+    private UserRole role = UserRole.CUSTOMER;
 
     //default constructor is needed to create instances of entity class during the retrieval of data from the database w/o this JPA won't able to create or instantiate any instances
 //    public User() {

@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -27,7 +28,12 @@ public class UserService {
 //        return userList;
 //    }
     public List<UserResponse> fetchAllUsers(){
-        return userRepository.findAll(); //using JPA repository
+
+        return userRepository.findAll().stream()
+                .map(this::mapToUserResponse)
+                .collect(Collectors.toList());
+        
+//        return userRepository.findAll(); //using JPA repository
     }
 
 //    public List<User> addUser(User user){

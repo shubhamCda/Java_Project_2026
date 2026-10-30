@@ -1,7 +1,7 @@
 package com.app.ecom.controller;
 
+import com.app.ecom.dto.UserRequest;
 import com.app.ecom.dto.UserResponse;
-import com.app.ecom.model.User;
 import com.app.ecom.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -45,15 +45,15 @@ public class UserController {
 
 //    @PostMapping("/api/users")
     @PostMapping
-    public ResponseEntity<String>  createUsers(@RequestBody User user){
-        userService.addUser(user);
+    public ResponseEntity<String>  createUsers(@RequestBody UserRequest userRequest){
+        userService.addUser(userRequest);
         return new ResponseEntity<>("User created",HttpStatus.CREATED);
     }
 
 //    @PutMapping("/api/users/{id}")
     @PutMapping("/{id}")
-    public ResponseEntity<String> updateUser(@PathVariable Long id, @RequestBody User updatedUser){
-        boolean updated = userService.updateUser(id,updatedUser);
+    public ResponseEntity<String> updateUser(@PathVariable Long id, @RequestBody UserRequest updatedUserRequest){
+        boolean updated = userService.updateUser(id,updatedUserRequest);
         if (updated)
             return ResponseEntity.ok("User updated successfully.");
         return ResponseEntity.notFound().build();

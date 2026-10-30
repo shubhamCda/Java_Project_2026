@@ -29,7 +29,7 @@ public class UserController {
 
 //    @GetMapping("/api/users/{id}")
     @GetMapping("/{id}")
-    public ResponseEntity<User> getUser(@PathVariable Long id){
+    public ResponseEntity<UserResponse> getUser(@PathVariable Long id){
 //        User user = userService.fetchUser(id);
 //        if (user == null)
 //            return ResponseEntity.notFound    ().build();

@@ -32,7 +32,7 @@ public class UserService {
         return userRepository.findAll().stream()
                 .map(this::mapToUserResponse)
                 .collect(Collectors.toList());
-        
+
 //        return userRepository.findAll(); //using JPA repository
     }
 
@@ -47,7 +47,11 @@ public class UserService {
 
     }
 
-    public Optional<User> fetchUser(Long id) {
+    public Optional<UserResponse> fetchUser(Long id) {
+
+        return userRepository.findById(id)
+                .map(this::mapToUserResponse);
+        
 //        for (User user: userList){
 //            if(user.getId() == id){
 //                return user;
@@ -57,7 +61,7 @@ public class UserService {
 //        return userList.stream()
 //                .filter(user -> user.getId() == id)
 //                .findFirst();
-        return userRepository.findById(id); //using JPA
+//        return userRepository.findById(id); //using JPA
     }
 
     public boolean updateUser(Long id, User updatedUser){

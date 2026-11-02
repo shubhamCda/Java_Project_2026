@@ -103,6 +103,7 @@ public class UserService {
             address.setState(userRequest.getAddress().getState());
             address.setCountry(userRequest.getAddress().getCountry());
             address.setZipcode(userRequest.getAddress().getZipcode());
+            user.setAddress(address);
         }
     }
     private UserResponse mapToUserResponse(User user){

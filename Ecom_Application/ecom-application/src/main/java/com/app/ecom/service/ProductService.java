@@ -5,8 +5,9 @@ import com.app.ecom.dto.ProductResponse;
 import com.app.ecom.model.Product;
 import com.app.ecom.repositories.ProductRepository;
 import lombok.RequiredArgsConstructor;
-import org.jspecify.annotations.Nullable;
 import org.springframework.stereotype.Service;
+
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -43,5 +44,15 @@ public class ProductService {
         product.setImageUrl(productRequest.getImageUrl());
         product.setDescription(productRequest.getDescription());
         product.setStockQuantity(productRequest.getStockQuantity());
+    }
+
+    public Optional<ProductResponse> updateProduct(Long id, ProductRequest productRequest) {
+        return productRepository.findById(id)
+                .map(existingProduct ->{
+                    updateProductFromRequest(existingProduct, productRequest);
+                    Product saveProduct = productRepository.save(existingProduct);
+                    return mapToProductResponse(saveProduct);
+
+                });
     }
 }

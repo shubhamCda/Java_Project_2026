@@ -5,6 +5,7 @@ import com.app.ecom.dto.ProductResponse;
 import com.app.ecom.model.Product;
 import com.app.ecom.repositories.ProductRepository;
 import lombok.RequiredArgsConstructor;
+import org.jspecify.annotations.Nullable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -60,6 +61,21 @@ public class ProductService {
 
     public List<ProductResponse> getAllProducts() {
         return productRepository.findByActiveTrue().stream()
+                .map(this::mapToProductResponse)
+                .collect(Collectors.toList());
+    }
+
+    public boolean deleteProduct(Long id) {
+        return productRepository.findById(id)
+                .map(product -> {
+                    product.setActive(false);
+                    productRepository.save(product);
+                    return true;
+                }).orElse(false);
+    }
+
+    public List<ProductResponse> searchProduct(String keyword) {
+        return productRepository.searchProduct(keyword).stream()
                 .map(this::mapToProductResponse)
                 .collect(Collectors.toList());
     }

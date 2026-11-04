@@ -23,11 +23,23 @@ public class ProductController {
                                                  , HttpStatus.CREATED);
     }
 
+    @GetMapping("/search")
+    public ResponseEntity<List<ProductResponse>> searchProduct(@RequestParam String keyword){
+        return ResponseEntity.ok(productService.searchProduct(keyword));
+    }
+
     @PutMapping("/{id}")
     public ResponseEntity<ProductResponse> updateProduct(@PathVariable Long id, @RequestBody ProductRequest productRequest){
         return productService.updateProduct(id, productRequest)
                 .map(ResponseEntity::ok)
                 .orElseGet(() -> ResponseEntity.notFound().build());
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteProduct(@PathVariable Long id){
+        boolean delete = productService.deleteProduct(id);
+        return delete ? ResponseEntity.noContent().build() : ResponseEntity.notFound().build();
+
     }
 
     @GetMapping

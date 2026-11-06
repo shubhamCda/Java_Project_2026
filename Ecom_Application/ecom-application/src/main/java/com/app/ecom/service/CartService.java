@@ -10,12 +10,14 @@ import com.app.ecom.repositories.UserRepository;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
 import java.util.Optional;
 
 @Data
 @RequiredArgsConstructor
+@Service
 public class CartService {
 
     private final ProductRepository productRepository;

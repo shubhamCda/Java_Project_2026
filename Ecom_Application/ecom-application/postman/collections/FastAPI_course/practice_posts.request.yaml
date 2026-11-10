@@ -1,0 +1,16 @@
+$kind: http-request
+url: http://127.0.0.1:8000/posts/4
+method: GET
+body:
+  type: json
+  content: "{\r
+
+    \    \"title\":\"political news\",\r
+
+    \    \"content\":\"tensions between gaza and Israel\"\r
+
+    \    \r
+
+    }"
+settings: {}
+order: 4000

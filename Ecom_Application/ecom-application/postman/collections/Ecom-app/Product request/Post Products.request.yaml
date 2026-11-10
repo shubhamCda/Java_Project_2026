@@ -1,0 +1,21 @@
+$kind: http-request
+url: http://localhost:9090/api/products
+method: POST
+body:
+  type: json
+  content: "{\r
+
+    \  \"name\": \"Samsung Galaxy S25 ultra\",\r
+
+    \  \"description\": \"Samsung smartphone with 256GB storage\",\r
+
+    \  \"price\": 99999.99,\r
+
+    \  \"stockQuantity\": 25,\r
+
+    \  \"category\": \"Electronics\",\r
+
+    \  \"imageUrl\": \"https://example.com/images/samsung-s24.jpg\"\r
+
+    }"
+order: 1000

@@ -1,0 +1,42 @@
+$kind: http-request
+url: http://localhost:9090/api/users
+method: POST
+body:
+  type: json
+  content: "\r
+
+    \   \r
+
+    \     {\r
+
+    \        \r
+
+    \        \"firstName\":\"shubh\",\r
+
+    \        \"lastName\":\"Bodalkar\",\r
+
+    \        \"email\": \"shubh@gmail.com\",\r
+
+    \        \"phone\": \"3451627819\",\r
+
+    \        \"address\":{\r
+
+    \            \"street\":\"chandrapur road\",\r
+
+    \            \"city\":\"mul\",\r
+
+    \            \"state\":\"maharashtra\",\r
+
+    \            \"country\":\"India\",\r
+
+    \            \"zipcode\":\"441224\"\r
+
+    \        }\r
+
+    \    }\r
+
+    \r
+
+    \r\n"
+settings: {}
+order: 1000

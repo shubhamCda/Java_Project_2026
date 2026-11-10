@@ -1,0 +1,15 @@
+$kind: http-request
+name: http://127.0.0.1:8000/api/index/
+url: http://127.0.0.1:8000/api/index/
+method: GET
+body:
+  type: json
+  content: "// {\r
+
+    //     \"name\": \"Shubham\",\r
+
+    //     \"age\": 30\r
+
+    // }"
+settings: {}
+order: 1000

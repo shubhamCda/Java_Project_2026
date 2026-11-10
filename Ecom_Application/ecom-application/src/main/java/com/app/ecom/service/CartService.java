@@ -11,6 +11,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
 import java.util.Optional;
@@ -60,6 +61,7 @@ public class CartService {
 
     }
 
+    @Transactional
     public boolean deleteItemFromCart(String userId, Long productId) {
 
         Optional<Product> productOpt = productRepository.findById(productId);

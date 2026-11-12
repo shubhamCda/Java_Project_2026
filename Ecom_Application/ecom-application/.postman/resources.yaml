@@ -1,8 +1,0 @@
-workspace:
-  id: 41c4dfa2-102e-4bac-8140-1c36c1aeaf75
-cloudResources:
-  collections:
-    ../postman/collections/Ecom-app: 29347726-0c786e1e-4dab-4973-b6ff-38fd3bc613f8
-    ../postman/collections/API_Learn: 29347726-9b0060d3-f317-4817-b334-e75ccdb7c57a
-    ../postman/collections/DRF: 29347726-cab5c7f2-b1a9-4d8d-8c61-d032c8506899
-    ../postman/collections/FastAPI_course: 29347726-1172d6e3-2595-432a-b2cf-d45e986658ae

@@ -1,6 +1,0 @@
-$kind: http-request
-name: http://localhost:8080/user
-url: http://localhost:8080/user
-method: GET
-settings: {}
-order: 5000

@@ -1,9 +1,0 @@
-$kind: http-request
-name: http://127.0.0.1:8000/apijson03/
-url: http://127.0.0.1:8000/api/33
-method: GET
-body:
-  type: json
-  content: ""
-settings: {}
-order: 6000

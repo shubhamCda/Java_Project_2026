@@ -1,4 +1,4 @@
 $kind: http-request
 url: http://localhost:9090/api/cart/items/1
 method: DELETE
-order: 2000
+order: 3000

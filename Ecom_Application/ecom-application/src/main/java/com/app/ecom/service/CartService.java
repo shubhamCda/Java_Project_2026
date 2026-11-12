@@ -10,10 +10,12 @@ import com.app.ecom.repositories.UserRepository;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
+import org.jspecify.annotations.Nullable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
+import java.util.List;
 import java.util.Optional;
 
 @Data
@@ -73,5 +75,12 @@ public class CartService {
         }
 
         return false;
+    }
+
+    public List<CartItem> getCart(String userId) {
+
+        return userRepository.findById(Long.valueOf(userId))
+                .map(cartItemRepository::findByUser)
+                .orElseGet(List::of);
     }
 }

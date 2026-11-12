@@ -10,9 +10,18 @@ import com.app.ecom.repositories.UserRepository;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
+<<<<<<< HEAD
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
+=======
+import org.jspecify.annotations.Nullable;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import java.math.BigDecimal;
+import java.util.List;
+>>>>>>> origin/master
 import java.util.Optional;
 
 @Data
@@ -60,6 +69,10 @@ public class CartService {
 
     }
 
+<<<<<<< HEAD
+=======
+    @Transactional
+>>>>>>> origin/master
     public boolean deleteItemFromCart(String userId, Long productId) {
 
         Optional<Product> productOpt = productRepository.findById(productId);
@@ -72,4 +85,14 @@ public class CartService {
 
         return false;
     }
+<<<<<<< HEAD
+=======
+
+    public List<CartItem> getCart(String userId) {
+
+        return userRepository.findById(Long.valueOf(userId))
+                .map(cartItemRepository::findByUser)
+                .orElseGet(List::of);
+    }
+>>>>>>> origin/master
 }

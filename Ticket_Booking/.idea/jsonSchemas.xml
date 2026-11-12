@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="JsonSchemaMappingsProjectConfiguration">
+    <state>
+      <map>
+        <entry key="Events Test Scheme">
+          <value>
+            <SchemaInfo>
+              <option name="name" value="Events Test Scheme" />
+              <option name="relativePathToSchema" value="app/src/main/java/ticket/booking/localDb/users.json" />
+              <option name="schemaVersion" value="JSON Schema 202,012" />
+              <option name="applicationDefined" value="true" />
+              <option name="patterns">
+                <list>
+                  <Item>
+                    <option name="path" value="app/src/main/java/ticket/booking/localDb/users.json" />
+                  </Item>
+                  <Item>
+                    <option name="path" value="app/src/main/java/ticket/booking/localDb/users.json" />
+                  </Item>
+                </list>
+              </option>
+            </SchemaInfo>
+          </value>
+        </entry>
+      </map>
+    </state>
+  </component>
+</project>

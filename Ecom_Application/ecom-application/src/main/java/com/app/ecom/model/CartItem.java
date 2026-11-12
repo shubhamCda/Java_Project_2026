@@ -2,6 +2,10 @@ package com.app.ecom.model;
 
 import jakarta.persistence.*;
 import lombok.Data;
+<<<<<<< HEAD
+=======
+import lombok.NoArgsConstructor;
+>>>>>>> origin/master
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
@@ -10,6 +14,10 @@ import java.time.LocalDateTime;
 
 @Entity
 @Data
+<<<<<<< HEAD
+=======
+@NoArgsConstructor
+>>>>>>> origin/master
 public class CartItem {
 
     @Id

@@ -1,4 +1,11 @@
 $kind: http-request
-url: ""
-method: GET
+url: http://localhost:9090/api/orders
+method: POST
+headers:
+  X-User-ID: "1"
+queryParams:
+  - key: X-User-ID
+    value: "1"
+    disabled: true
+    description: ""
 order: 1000

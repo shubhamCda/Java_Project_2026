@@ -1,11 +1,13 @@
 package com.app.ecom.service;
 
+import com.app.ecom.dto.OrderItemDTO;
 import com.app.ecom.dto.OrderResponse;
 import com.app.ecom.model.*;
 import com.app.ecom.repositories.OrderRepository;
 import com.app.ecom.repositories.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
 import java.util.List;
@@ -20,6 +22,7 @@ public class OrderService {
     private final UserRepository userRepository;
     private final OrderRepository orderRepository;
 
+    @Transactional
     public Optional<OrderResponse> createOrder(String userId) {
 
         //Validate for cart items
@@ -58,8 +61,27 @@ public class OrderService {
         Order orderSaved = orderRepository.save(order);
 
         //Clear the order
+        cartService.clearCart(userId);
 
 
-        return Optional.empty();
+        return Optional.of(mapToOrderResponse(orderSaved));
+    }
+
+    private OrderResponse mapToOrderResponse(Order order) {
+        return new OrderResponse(
+                order.getId(),
+                order.getTotalAmount(),
+                order.getStatus(),
+                order.getItems().stream()
+                        .map(orderItem -> new OrderItemDTO(
+                                orderItem.getId(),
+                                orderItem.getProduct().getId(),
+                                orderItem.getQuantity(),
+                                orderItem.getPrice(),
+                                orderItem.getPrice().multiply(new BigDecimal(orderItem.getQuantity()))
+                        )).collect(Collectors.toList()),
+                order.getCreatedAt(),
+                order.getUpdatedAt()
+        );
     }
 }

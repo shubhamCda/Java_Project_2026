@@ -1,0 +1,33 @@
+$kind: http-request
+url: http://localhost:9090/api/users
+method: POST
+body:
+  type: json
+  content: "{\r
+
+    \  \"firstName\": \"Shubham\",\r
+
+    \  \"lastName\": \"Bodalkar\",\r
+
+    \  \"email\": \"shubham@example.com\",\r
+
+    \  \"phone\": \"9876543210\",\r
+
+    \  \"role\": \"CUSTOMER\",\r
+
+    \  \"address\": {\r
+
+    \    \"street\": \"MG Road\",\r
+
+    \    \"city\": \"Nagpur\",\r
+
+    \    \"state\": \"Maharashtra\",\r
+
+    \    \"country\": \"India\",\r
+
+    \    \"zipcode\": \"440001\"\r
+
+    \  }\r
+
+    }"
+order: 1000

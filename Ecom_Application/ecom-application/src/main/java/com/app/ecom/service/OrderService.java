@@ -80,8 +80,8 @@ public class OrderService {
                                 orderItem.getPrice(),
                                 orderItem.getPrice().multiply(new BigDecimal(orderItem.getQuantity()))
                         )).collect(Collectors.toList()),
-                order.getCreatedAt(),
-                order.getUpdatedAt()
+                order.getCreatedAt()
+
         );
     }
 }

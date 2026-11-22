@@ -6,6 +6,7 @@ services:
     environment:
       POSTGRES_USER: shubhamb
       POSTGRES_PASSWORD: shubhamb
+      POSTGRES_DB: ecomdb
       PGDATA: /data/postgres
     volumes:
       - postgres:/data/postgres

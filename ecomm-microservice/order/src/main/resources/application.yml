@@ -1,18 +1,29 @@
 spring:
     application:
-        name: product-service
+        name: order-service
 
-    h2:
-        console:
-            enabled: true
+#    h2:
+#        console:
+#            enabled: true
 
     datasource:
-        url: jdbc:h2:mem:test
+#        url: jdbc:h2:mem:test
+      url: jdbc:postgresql://localhost:5432/order
+      username: shubhamb
+      password: shubhamb
+      driver-class-name: org.postgresql.Driver
+
 
     jpa:
-        show-sql: true
+      database: POSTGRESQL
+      show-sql: true
+      hibernate:
+        ddl-auto: update
+      properties:
         hibernate:
-            ddl-auto: create
+          jdbc:
+            time_zone: UTC
+      # database-platform: org.hibernate.dialect.PostgreSQLDialect
 
 server:
     port: 8082
